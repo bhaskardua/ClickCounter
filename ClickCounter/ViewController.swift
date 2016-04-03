@@ -40,8 +40,10 @@ class ViewController: UIViewController {
         button.setTitle("Click", forState: .Normal)
         button.setTitleColor(UIColor.blueColor(), forState: .Normal)
         self.view.addSubview(button)
+    
         
         button.addTarget(self, action: #selector(ViewController.incrementCount), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(ViewController.changeBackgroundColor), forControlEvents: UIControlEvents.TouchUpInside)
         
         //decrementButton
         
@@ -52,6 +54,7 @@ class ViewController: UIViewController {
         self.view.addSubview(decrementButton)
         
         decrementButton.addTarget(self, action: #selector(ViewController.decrementCount), forControlEvents: UIControlEvents.TouchUpInside)
+        decrementButton.addTarget(self, action: #selector(ViewController.changeBackgroundColor), forControlEvents: UIControlEvents.TouchUpInside)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -66,6 +69,14 @@ class ViewController: UIViewController {
         self.count -= 1
         self.label.text = "\(self.count)"
         self.label2.text = "\(self.count)"
+    }
+    
+    func changeBackgroundColor(){
+        if count % 2 == 0 {
+            self.view.backgroundColor = UIColor.whiteColor()
+        } else {
+            self.view.backgroundColor = UIColor.lightGrayColor()
+        }
     }
 
 
